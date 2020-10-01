@@ -1,0 +1,21 @@
+return new Promise(resolve => {
+    // Your logic goes here
+    let travel_option = app.context.steps.travel-option;
+    let stay_period_in_days = app.context.steps.number-of-days;
+    let hotel_amenities = app.context.steps.hotel-requirements;
+    let chosen_area = app.context.steps.specific-area;
+    let budget = app.context.steps.budget;
+
+    app.datastore.insert({
+        table: "hotel_search_details",
+        record: {
+            travel_option: travel_option,
+            stay_period_in_days: stay_period_in_days,
+            hotel_amenities: hotel_amenities,
+            chosen_area: chosen_area,
+            budget: budget
+        }
+    });
+    
+    resolve();
+});
